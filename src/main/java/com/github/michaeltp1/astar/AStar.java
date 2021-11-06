@@ -67,8 +67,7 @@ public class AStar {
 			for (Node neighbor : getNeighbors(current, grid)) {
 				if (neighbor.isTraversable()) {
 					if (!closedSet.contains(neighbor)) {
-						// if the neighbor is not in the open set
-						if (!openSet.contains(neighbor) || neighbor.getG() < current.getG()) {
+						if (neighbor.getG() > current.getG()+1) {
 							// set the neighbor's parent to the current node
 							neighbor.setParent(current);
 							// calculate the neighbor's g and h values
